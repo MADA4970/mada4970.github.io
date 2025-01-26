@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Hello Me </title>
+        <link rel="stylesheet" href="./styles.css">
         <style>
             *{
             margin:0;
@@ -52,14 +53,34 @@
             font-size:1.1rem;
             line-height:1.5;
         }
+
+        #game-container{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 50vw;
+            height: 50vh;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.3); /* Temporary background to check if it's visible */
+            display: flex !important; 
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .wrapper{
+            width:100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         
         </style>
     </head>
     <body>
         
         <div class="container">
-            <div class="image">
-                 </div>
+            <div class="image"></div>
             
             <div class="text">
                 <h1>Marco Davila</h1>
@@ -73,5 +94,33 @@
                     <p>This is my favorite video!: <a href="https://www.youtube.com/watch?v=bqloPw5wp48" target="_blank">ContraPoints: Twilight</a></p>
             </div>
         </div>
+
+         <!-- Game Container (Bottom-Right) -->
+    <div id="game-container">
+        <div class="wrapper">
+            <div class="end-message d-none">
+              <p>
+                Hooray! There's no more sad bunnies!
+              </p>
+              <button>play again</button>
+            </div>
+            <div class="bunny-radar">
+              <div class="circle"></div>
+            </div>
+            <div class="map-cover overflow-hidden">
+              <div class="map">
+                <div class="player-wrapper flex-center ">
+                  <div class="player sprite-container">
+                    <div class="bear sprite"></div>
+                  </div>
+                </div>
+              </div>
+            </div>  
+          </div>
+          
+          <div class="indicator">x 45</div>
+          <div class="sign">
+            by masahito / <a href="http://www.ma5a.com/" >ma5a.com</a>
+          </div>
         </body>
 </html>
