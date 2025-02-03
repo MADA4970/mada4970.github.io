@@ -1,10 +1,9 @@
 body {
     color: antiquewhite;
-    background-color: black;
-    max-width: 800px;
+ 
     margin: 0 auto;
     padding-bottom: 0%;
-   
+    
   }
   
   footer{
@@ -40,7 +39,7 @@ body {
     margin: 0;
     padding:10px;
     height: 100vh;
-    width:25%;
+    width:425px;
     background-color:rgb(28, 28, 28);
     font-size: 1.1em;
     line-height: 1.5;
