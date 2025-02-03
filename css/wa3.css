@@ -42,11 +42,12 @@ body {
     width:425px;
     background-color:rgb(28, 28, 28);
     font-size: 1.1em;
-    line-height: 1.5;
+    line-height: 1.2;
     position: fixed;
     left: 0;
     top:0;
     overflow: auto;
+    
   }
  
   li {

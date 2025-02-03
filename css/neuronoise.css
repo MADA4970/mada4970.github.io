@@ -13,7 +13,7 @@ body, html {
 
 .section {
     width: 50%;
-    height: 4vh;
+    height: 3vh;
     display: flex;
     justify-content: left;
     align-items: center;
