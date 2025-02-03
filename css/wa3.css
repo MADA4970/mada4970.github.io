@@ -49,9 +49,13 @@ body {
     top:0;
     overflow: auto;
   }
-  
+  .navbar {
+    display: flex;
+    border-bottom:1px solid #dcdcdc
+  }
   li {
     
     line-height: 1.5;
   }
+  
  
