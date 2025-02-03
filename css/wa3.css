@@ -38,7 +38,7 @@ body {
     text-align: left;
     list-style-type:none;
     margin: 0;
-    padding:0;
+    padding:10px;
     height: 100vh;
     width:25%;
     background-color:rgb(28, 28, 28);
