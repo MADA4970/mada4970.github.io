@@ -211,6 +211,7 @@ html {
     background-color: rgb(87, 28, 105);
     border: 0.2em solid black;
     border-radius: 1.5em;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     
   }
 
@@ -255,7 +256,7 @@ html {
   }
   .card article p{
     color: white;
-    line-height: 1.4em;
+    line-height: 1.6em;
     padding:1em;
     font-size:1.04em;
   }
