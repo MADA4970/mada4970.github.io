@@ -10,14 +10,7 @@ body {
 }
 
 img {
-  /* width: 100%;
-  object-fit: cover; */
-  /* height: 100%;
-  scale: 1.2;
-  translate: 0 0; */
-  /* filter: grayscale(1); */
   max-height: 100%;
-
   float: right;
 }
 
