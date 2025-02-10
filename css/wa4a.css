@@ -1,6 +1,6 @@
 /* General styles - put these straight into your stylesheet */
 
-body {
+business-card body {
     margin: 0;
   }
   
@@ -12,7 +12,7 @@ body {
   
   
   /* card container styles */
- .card {
+ .business-card {
     width: 35em;
     height: 22em;
     margin: 5em auto;
@@ -23,47 +23,47 @@ body {
   }
 
    /* header footer styles */
- .card header {
+ .business-card header {
     background-image: linear-gradient(to bottom,rgba(253, 2, 2, 0.1), rgba(0,0,0,0));
     border-radius: 1.5em 1.5em 0 0;
   }
   
-  .card footer{
+  .business-card footer{
     background-image: linear-gradient(to bottom,rgba(0,0,0,0), rgba(253, 2, 2, 0.1));
     border-radius: 0 0 1.5em 1.5em;
   }
 
-  .card header,.card footer {
+  .business-card header,.business-card footer {
     height:5em;
     padding: 1em;
     box-sizing: border-box;
   }
 
-  .card header h2{
+  .business-card header h2{
     font-weight:bold;
     font-size:2em;
     line-height: 1.5em;
   }
   
-  .card footer p{
+  .business-card footer p{
     font-size:1.5em;
     line-height: 2em;
   }
   
   /* business card styles */
-  .card article img{
+  .business-card article img{
     max-height: 100%;
     float: right;
   }
 
-  .card article{
+  .business-card article{
     height: 12em;
     background-color:rgba(0,0,0,0.5);
     
   }
-  .card article p{
+  .business-card article p{
     color: white;
-    line-height: 1.4em;
+    line-height: 1.3em;
     padding:1em;
   }
 

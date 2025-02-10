@@ -10,12 +10,15 @@ body {
 }
 
 img {
-  width: 100%;
-  object-fit: cover;
-  height: 100%;
+  /* width: 100%;
+  object-fit: cover; */
+  /* height: 100%;
   scale: 1.2;
-  translate: 0 0;
-  filter: grayscale(1);
+  translate: 0 0; */
+  /* filter: grayscale(1); */
+  max-height: 100%;
+
+  float: right;
 }
 
 .card:not(:hover) img {
@@ -32,7 +35,7 @@ img {
   --ratio-x: 0;
   --ratio-y: 0;
   overflow: hidden;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 3;
   width: clamp(260px, 50vmin, 320px);
   border-radius: 8px;
   transform-style: preserve-3d;
@@ -207,3 +210,63 @@ html {
     border-width: 0;
   }
 }
+
+.card {
+    width: 35em;
+    height: 22em;
+    margin: 5em auto;
+    background-color: rgb(87, 28, 105);
+    border: 0.2em solid black;
+    border-radius: 1.5em;
+    
+  }
+
+   /* header footer styles */
+ .card header {
+    background-image: linear-gradient(to bottom,rgba(253, 2, 2, 0.1), rgba(0,0,0,0));
+    border-radius: 1.5em 1.5em 0 0;
+  }
+  
+  .card footer{
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0), rgba(253, 2, 2, 0.1));
+    border-radius: 0 0 1.5em 1.5em;
+  }
+
+  .card header,.card footer {
+    height:5em;
+    padding: 1em;
+    box-sizing: border-box;
+  }
+
+  .card header h2{
+    font-weight:bold;
+    font-size:2em;
+    line-height: 1.5em;
+  }
+  
+  .card footer p{
+    font-size:1.5em;
+    line-height: 2em;
+  }
+  
+  /* business card styles */
+  .card article img{
+    max-height: 100%;
+    float: right;
+  }
+
+  .card article{
+    height: 12em;
+    background-color:rgba(0,0,0,0.5);
+    
+  }
+  .card article p{
+    color: white;
+    line-height: 1.4em;
+    padding:1em;
+    font-size:1.04em;
+  }
+
+  h2,p {
+    margin: 0;
+  }
