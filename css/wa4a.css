@@ -1,6 +1,6 @@
 /* General styles - put these straight into your stylesheet */
 
-business-card body {
+ body {
     margin: 0;
   }
   
@@ -19,7 +19,7 @@ business-card body {
     background-color: red;
     border: 0.2em solid black;
     border-radius: 1.5em;
-    
+    color:black;
   }
 
    /* header footer styles */
