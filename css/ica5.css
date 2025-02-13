@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    background: #ccc;
+  }
+  
+  article {
+    background: url('/wa/img/top-image.png')no-repeat center top,
+    url('/wa/img/bottom-image.png') no-repeat center bottom,
+    linear-gradient(to bottom, rgba(0,0,0,0.3) 5%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.3) 95%), white; 
+    border-bottom: 1mm solid #fa1e1e;
+    border-top: 1mm solid #fa1e1e;
+    width: 210mm;
+    height: 297mm;
+    margin: 20px auto;
+    position: relative;
+  }
+  
+  address {
+    position: absolute;
+    bottom: 8mm;
+    right: 20mm;
+  }
+  
+  h1 {
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+    background: url('/wa/img/logo.png') no-repeat center center;
+    position: absolute;
+    top: 12mm;
+    left: 20mm;
+    width: 128px;
+    height: 128px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 44px 0;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+  }
+  header.image{
+
+  }
+  
+  /* Your CSS below here */
