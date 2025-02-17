@@ -1,26 +1,42 @@
-* {
-    box-sizing: border-box;
-  }
+
   
   html {
     font-family: sans-serif;
   }
   body {
     margin: 0;
+    position:relative;
+    height:100vh;
   }
   
-.overlay {
+  .health-overlay{
+    position:absolute;
+    width:100%;
+    top:-290px;
+    left:0;
+    height:50vh;
+    background: url(../wa/img/health.png) no-repeat top center;
+    z-index:2;
+  }
+  .fight-overlay{
+    top:50%;
+    position:absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height:40vh;
+    background: url(../wa/img/fight.png) no-repeat center center;
+    z-index: 2
     
-    /* position:absolute; */
-    min-height: 100vh;
-    
-    background: url(/wa/img/health.png) no-repeat center top,
-    url(/wa/img/fight.png) no-repeat center center;
-    background-size: cover;
-    margin: 0;
-    z-index: 0;
   }
   img {
-    position:relative;
+    top:50%;
+    position:absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width:61%;
+    
     z-index:1;
+    background-size: contain;
   }
