@@ -1,3 +1,26 @@
-
+* {
+    box-sizing: border-box;
+  }
   
+  html {
+    font-family: sans-serif;
+  }
+  body {
+    margin: 0;
+  }
   
+.overlay {
+    
+    /* position:absolute; */
+    min-height: 100vh;
+    
+    background: url(/wa/img/health.png) no-repeat center top,
+    url(/wa/img/fight.png) no-repeat center center;
+    background-size: cover;
+    margin: 0;
+    z-index: 0;
+  }
+  img {
+    position:relative;
+    z-index:1;
+  }
