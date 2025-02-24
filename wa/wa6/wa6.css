@@ -37,8 +37,9 @@ body {
     color: #fff;
     text-decoration: none;
     padding: .5em 1em;
-   
+   display: block;
   }
+
 @media (min-width: 501px) {
 
 
