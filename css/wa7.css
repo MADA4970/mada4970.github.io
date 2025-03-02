@@ -8,9 +8,8 @@ body{
     align-items: center;
     background-color: rgb(12, 12, 12);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
     background-image: url(/wa/img/stars.jpg);
-    background-size:contain ;
+    background-size: contain;
 }
 h1 {
     color:rgb(9, 129, 222);
@@ -37,8 +36,7 @@ img{
     height: 30vh;
     
 }
-
-#red-ball{
+#moon{
     background-color: rgb(230, 226, 241);
     width: 60px;
     height:60px;
@@ -46,4 +44,39 @@ img{
     position: absolute;
     left:5vw;
     top:50px;
+}
+.contain-eclipse {
+    width: 61px;
+    height:61px;
+    border-radius: 50%;
+    position: absolute;
+    left:42px;
+    top:50px;
+    /* border: 2px solid white; */
+    overflow:hidden;
+}
+
+#eclipse {
+    background-color: rgb(5, 4, 4);
+    width: 61px;
+    height:61px;
+    border-radius: 50%;
+    
+    top: 0;
+    left: 5vw;
+    position:absolute;
+    animation: eclipseMove 8s infinite ease-in-out;
+}
+
+@keyframes eclipseMove{
+    0% {
+        
+        left: -8vw;
+    }
+    100% {
+        
+        left:8vw
+    }
+    
+    
 }
