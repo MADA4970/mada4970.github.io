@@ -137,12 +137,12 @@ body {
 	max-width: 90vmin;
 	max-height: 90vmin;
 	position: relative;
-
-	img {
-       aspect-ratio: initial;
-		width: 37%;
-	}
 }
+	.effect img {
+       aspect-ratio:auto;
+		width: 37%;
+}
+
 
 @property --effectPos {
 	syntax: "<percentage>";
