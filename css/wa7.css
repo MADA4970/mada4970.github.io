@@ -1,7 +1,4 @@
-html {
-   
-    
-}
+
 body{
     display: flex;
     flex-direction: column;
@@ -12,6 +9,7 @@ body{
     background-size: contain;
 }
 h1 {
+
     color:rgb(9, 129, 222);
 }
 nav{
@@ -27,18 +25,49 @@ nav a{
     text-align: center;
     text-decoration: none;
     color:black;
+    transition: background-color 0.7s;
 }
 
-
+nav a:hover {
+    background-color:blueviolet;
+    transition:background-color 0.5s ;
+}
 img{
     aspect-ratio:initial ;
-    width:30vw;
-    height: 30vh;
+    opacity:1;
+}
+.fade-text{
+    width:300px;
+    opacity:1;
+    transition: opacity 2s ease-in-out;
+    animation: fade 4s ease-in-out;
+      
+}
+.fade{
+    width:35%;
+    opacity:1;
+    transition: opacity 2s ease-in-out;
+    animation: fade 4s ease-in-out;
+    
     
 }
+
+@keyframes fade{
+    0%{opacity: 0}
+    100%{opacity:1}
+}
+
+.fade:hover {
+    opacity:0;
+    transition:opacity 3s ease-in-out;
+}
+
+
+
+
 #moon{
     background-color: rgb(230, 226, 241);
-    width: 60px;
+    width: 59px;
     height:60px;
     border-radius: 50%;
     position: absolute;
@@ -46,22 +75,21 @@ img{
     top:50px;
 }
 .contain-eclipse {
-    width: 61px;
-    height:61px;
+    width: 66px;
+    height:66px;
     border-radius: 50%;
     position: absolute;
-    left:42px;
-    top:50px;
-    /* border: 2px solid white; */
+    left:4.95vw;
+    top:48px;
+    /* border: 0.5px solid white; */
     overflow:hidden;
 }
 
 #eclipse {
     background-color: rgb(5, 4, 4);
-    width: 61px;
-    height:61px;
+    width: 65px;
+    height:66px;
     border-radius: 50%;
-    
     top: 0;
     left: 5vw;
     position:absolute;
@@ -71,11 +99,11 @@ img{
 @keyframes eclipseMove{
     0% {
         
-        left: -8vw;
+        left: -4vw;
     }
     100% {
         
-        left:8vw
+        left:4vw
     }
     
     
