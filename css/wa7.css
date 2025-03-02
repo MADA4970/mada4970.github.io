@@ -33,6 +33,7 @@ nav a:hover {
     transition:background-color 0.5s ;
 }
 img{
+    
     aspect-ratio:initial ;
     opacity:1;
 }
@@ -59,7 +60,7 @@ img{
 
 .fade:hover {
     opacity:0;
-    transition:opacity 3s ease-in-out;
+    transition:opacity 1s ease-in-out;
 }
 
 
@@ -94,17 +95,106 @@ img{
     left: 5vw;
     position:absolute;
     animation: eclipseMove 8s infinite ease-in-out;
+    
 }
 
+@media screen and (max-width:600px){
+    #eclipse { 
+    animation: eclipseMini 8s infinite ease-in-out;
+    }
+}
 @keyframes eclipseMove{
-    0% {
-        
-        left: -4vw;
-    }
-    100% {
-        
-        left:4vw
-    }
-    
-    
+            0% {
+                
+                transform:translateX(-240%)
+            }
+            100% {
+                
+                transform:translateX(50%)
+            } 
+        }
+
+        @keyframes eclipseMini{
+        0% {
+            
+            transform:translateX(-140%)
+        }
+        100% {
+            transform:translateX(60%)
+        } 
+        }
+
+
+body {
+	/* min-height: 100vh; */
+	display:flex;
+	/* place-items: center; */
+}
+/* CONTAINS BOTH IMAGES */
+.effect {
+    display:flex;
+    justify-content:center;
+	max-width: 90vmin;
+	max-height: 90vmin;
+	position: relative;
+
+	img {
+       aspect-ratio: initial;
+		width: 37%;
+		/* height: min-content; */
+	}
+}
+
+@property --effectPos {
+	syntax: "<percentage>";
+	inherits: false;
+	initial-value: 50%;
+}
+.filtered {
+    display:flex;
+    pointer-events:none;
+
+    position:absolute;
+    justify-content: center;
+    display:flex;
+	top:0;
+	left: 31.5%;
+	filter: blur(3px) contrast(1.5) hue-rotate(90deg);
+	
+/* 	HEIGHT OF THE REGION WHERE THE EFFECT TAKES PLACE */
+	--height: 5%;
+/* 	HEIGHT OF THE FALLOFF TOWARDS THE EFFECT NOT TAKING PLACE */
+	--falloff: 10%;
+/* 	TOTAL HEIGHT OF BOTH */
+	--total: calc(var(--height) + var(--falloff));
+
+/* 	STARTING POINT */
+	--start: calc(var(--total) * -1);
+/* 	END POINT */
+	--end: calc( 100% + var(--total));
+	
+	-webkit-mask-image: linear-gradient(
+		rgba(0, 0, 0, 0) calc(var(--effectPos) - var(--total)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) - var(--height)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) + var(--height)),
+		rgba(0, 0, 0, 0) calc(var(--effectPos) + var(--total))
+	);
+	mask-image: linear-gradient(
+		rgba(0, 0, 0, 0) calc(var(--effectPos) - var(--total)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) - var(--height)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) + var(--height)),
+		rgba(0, 0, 0, 0) calc(var(--effectPos) + var(--total))
+	);
+	animation: maskingSlide 5s infinite;
+}
+@keyframes maskingSlide {
+	0% {
+		--effectPos: var(--start);
+	}
+	95% {
+		--effectPos: var(--end);
+	}
+	100% {
+		--effectPos: var(--end);
+	}
 }
