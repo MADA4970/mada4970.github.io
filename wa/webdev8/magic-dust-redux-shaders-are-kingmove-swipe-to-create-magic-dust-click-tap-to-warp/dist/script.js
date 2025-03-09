@@ -51,7 +51,7 @@
     bloomIntensity: 1.5,
     backgroundWaveAmp: 0.35,
     backgroundIntensity: 20.0,
-    bgTopColor: "#0A0011",
+    bgTopColor: "#000411",
     bgBottomColor: "#000000"
   };
 
@@ -116,8 +116,8 @@
     renderFolder.open();
   }
   
-  const canvas = document.getElementById("magic-dust");
-  const gl = canvas.getContext("webgl2");
+  const canvas1 = document.getElementById("magic-dust");
+  const gl = canvas1.getContext("webgl2");
   if (!gl) {
     alert("WebGL2 is not supported");
     return;
@@ -127,14 +127,17 @@
   let blurFBO1 = null, blurTexture1 = null;
   let blurFBO2 = null, blurTexture2 = null;
   
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    gl.viewport(0, 0, canvas.width, canvas.height);
-    resizeFramebuffers();
+  function resizeCanvas1() {
+    canvas1.width = window.innerWidth;
+    canvas1.height = window.innerHeight;
+    gl.viewport(0, 0, canvas1.width, canvas1.height);
+    resizeFramebuffers1();
   }
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
+ 
+  window.addEventListener("resize", resizeCanvas1);
+ 
+  resizeCanvas1();
+  
   
   function compileShader(source, type) {
     const shader = gl.createShader(type);
@@ -319,9 +322,9 @@
     gl.bindFramebuffer(gl.FRAMEBUFFER, null);
     return { fbo, texture };
   }
-  function resizeFramebuffers() {
-    const width = canvas.width;
-    const height = canvas.height;
+  function resizeFramebuffers1() {
+    const width = canvas1.width;
+    const height = canvas1.height;
     if (sceneFBO) {
       gl.deleteTexture(sceneTexture);
       gl.deleteFramebuffer(sceneFBO);
@@ -340,7 +343,7 @@
     blurFBO2 = fb.fbo;
     blurTexture2 = fb.texture;
   }
-  resizeFramebuffers();
+  resizeFramebuffers1();
   
   gl.useProgram(programBlur);
   const uTexelSizeLoc = gl.getUniformLocation(programBlur, "u_texelSize");
@@ -397,8 +400,8 @@
   function createAmbientParticle() {
     const hue = randomAllowedHue();
     const particle = {
-      x: randomBetween(0, canvas.width),
-      y: randomBetween(0, canvas.height),
+      x: randomBetween(0, canvas1.width),
+      y: randomBetween(0, canvas1.height),
       scale: randomBetween(params.ambientMinScale, params.ambientMaxScale),
       rotation: randomBetween(0, Math.PI * 2),
       hue: hue,
@@ -486,6 +489,7 @@
       angularVelocity: randomBetween(0.5, 1.5),
       radialSpeed: randomBetween(params.mouseVelocityMin, params.mouseVelocityMax)
     };
+    
     particles.push(particle);
     const duration = randomBetween(params.mouseTweenDurationMin, params.mouseTweenDurationMax);
     const targetHue = (hue + 0.5) % 1;
@@ -517,6 +521,15 @@
     for (let i = 0; i < params.mouseParticleCount; i++) {
       createMouseParticle(x, y);
     }
+    for (let i = 0; i < params.mouseParticleCount; i++) {
+      createMouseParticle(x+100, y+100);
+    }
+    for (let i = 0; i < params.mouseParticleCount; i++) {
+      createMouseParticle(x-100, y+100);
+    }
+
+
+
     // Subtle ripple effect on ambient particles behind the magic dust point.
     particles.forEach(p => {
       if (p.ambient) {
@@ -628,7 +641,7 @@
     gl.clearColor(0, 0, 0, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.useProgram(programParticles);
-    gl.uniform2f(uResLoc, canvas.width, canvas.height);
+    gl.uniform2f(uResLoc, canvas1.width, canvas1.height);
     gl.bindVertexArray(particlesVAO);
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, particles.length);
     gl.bindFramebuffer(gl.FRAMEBUFFER, blurFBO1);
@@ -639,7 +652,7 @@
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, sceneTexture);
     gl.uniform1i(uTextureLoc, 0);
-    gl.uniform2f(uTexelSizeLoc, 1.0 / canvas.width, 1.0 / canvas.height);
+    gl.uniform2f(uTexelSizeLoc, 1.0 / canvas1.width, 1.0 / canvas1.height);
     gl.uniform2f(uDirectionLoc, 1.0, 0.0);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     gl.bindFramebuffer(gl.FRAMEBUFFER, blurFBO2);
