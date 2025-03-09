@@ -6,17 +6,18 @@ body {
     align-items: center;
     background-color: rgb(12, 12, 12);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /* background-image: url(/wa/img/stars.jpg) ; */
-    
+    background-image: url(/wa/img/stars.jpg);
+    background-size:contain;
+    background-repeat: repeat;
     
   }
-  date-time {
+  .who-what-where {
 text-align: center;
 font-weight: bold;
   }
 
-repertoire {
-   font: italic;
+  .conductor-repetoire {
+   font-weight:bold;
 }
 
 
@@ -41,13 +42,7 @@ repertoire {
   h3 {
     font-size: 1.3em;
   }
-  hr {
-   border:none;
-   height: 2px;
-   background-color:gray;
-   margin: 10px 0;
-   width:200vh;
-  }
+  
   ul, nav {
     text-align: left;
     list-style-type:none;
