@@ -1,36 +1,27 @@
 body {
     
     color: rgb(244, 243, 241);
-    display: flex;
-    flex-direction: column;
+   text-align:center;
     align-items: center;
     background-color: rgb(12, 12, 12);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
     background-image: url(/wa/img/stars.jpg);
-    background-size:contain;
+    
+    background-size:25%;
     background-repeat: repeat;
     
   }
   .who-what-where {
-text-align: center;
+
 font-weight: bold;
+white-space:pre-line;
+
   }
 
-  .conductor-repetoire {
-   font-weight:bold;
-}
 
-
-
-  footer{
-    bottom: 0;
-    width:100%;
-    padding-top: 5%;
-    padding-bottom: 0%;
-    
-  }
   h1 {
-    text-align:center;
+    
     font-size: 1.7em;
     
   }
@@ -43,25 +34,55 @@ font-weight: bold;
     font-size: 1.3em;
   }
   
-  ul, nav {
-    text-align: left;
-    list-style-type:none;
-    margin: 0;
-    padding:10px;
-    height: 100vh;
-    width:425px;
-    background-color:rgb(28, 28, 28);
-    font-size: 1.1em;
-    line-height: 1.2;
-    position: fixed;
-    left: 0;
-    top:0;
-    overflow: auto;
-    
-  }
- 
-  li {
-    line-height: 1.5;
-  }
+ .big-container{
+display:grid;
+grid-template-columns: 1fr 1fr;
+
+ } 
+ .the-children {
+  text-align:center;
   
+  /* border:1px solid red; */
+  padding:10px;
+  margin: 10px;
+  
+ } 
  
+ 
+ .concerts-org{
+ 
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  grid-template-rows:auto auto auto auto;
+  align-items:center;
+ }
+ .concerts{
+  /* border: 1px solid blue; */
+  grid-column: 1/ span 4 ;
+  grid-row:1;
+ }
+ .conductor {
+  /* border: 1px solid blue; */
+  grid-column: 1/span 2 ;
+  grid-row:2;
+ }
+ .location{
+  /* border: 1px solid blue; */
+  grid-column: 1/ span 2 ;
+  grid-row:3;
+ }
+.rep{
+  white-space:pre-line;
+  /* border: 1px solid blue; */
+  grid-column: 3/span 2;
+  grid-row:2/ span 2;
+ }
+ .description{
+  text-align:justify;
+  /* border: 1px solid blue; */
+  grid-column: 1/span 4;
+  grid-row:4;
+  
+ }
+ 
+
