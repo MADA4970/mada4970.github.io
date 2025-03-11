@@ -22,7 +22,7 @@ white-space:pre-line;
 
   h1 {
     
-    font-size: 1.7em;
+    font-size: 3em;
     
   }
   
@@ -97,21 +97,35 @@ grid-template-columns: 1fr;
  }
  
  nav{
-  height: 50vh;
+  
+  font-size:1.5vw;
+  height: 2vw;
+  
   display:flex;
   flex-direction: row;
   justify-content: space-between;
-  height:20px;
+ 
   background-color: lightseagreen;
+  position:sticky;
+  top:0;
+  width:100%;
+  margin:0;
+  z-index:10;
  }
+ nav ul{
+  list-style: none;
+}
 
- nav a{
+ nav a li{
+  flex-direction: row;
+  /* top:50%; */
+  /* font-size:1.8vw; */
   width:10vw;
   text-align: center;
   text-decoration: none;
   color:black;
   transition: background-color 0.7s;
-  
+ 
  
 }
 nav a:hover {
