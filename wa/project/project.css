@@ -12,12 +12,12 @@ body {
     background-repeat: repeat;
     
   }
-  .who-what-where {
+  /* .who-what-where {
 
 font-weight: bold;
 white-space:pre-line;
 
-  }
+  } */
 
 
   h1 {
@@ -92,11 +92,31 @@ grid-template-columns: 1fr;
   /* border: 1px solid blue; */
   grid-column: 1/span 4;
   grid-row:4;
+  position: relative;
   
  }
  
-navbar {
+ nav{
+  height: 50vh;
+  display:flex;
   flex-direction: row;
+  justify-content: space-between;
+  height:20px;
+  background-color: lightseagreen;
+ }
+
+ nav a{
+  width:10vw;
+  text-align: center;
+  text-decoration: none;
+  color:black;
+  transition: background-color 0.7s;
+  
+ 
+}
+nav a:hover {
+  background-color:blueviolet;
+  transition:background-color 0.5s ;
 }
 
 /* moving gradient */
@@ -114,18 +134,28 @@ navbar {
   mask-image: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
  
 }
+.description::after {
+  content: "";
+  position: absolute;
+  top:0;
+  bottom: -3px;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff00ff, #0000ff, #00ffff,#ff00ff);
+  background-size: 300% 100%;
+  animation: galaxy-gradient 5s infinite linear ;
+  mask-image: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+ 
+}
 /* gradient border */
 .the-children::before {
   content: "";
   position: absolute;
-  top:-3px;
-  left:-3px;
-  right:-3px;
-  bottom:-3px;
+  inset:-3px;
   border-radius: 10px;
   background: linear-gradient(90deg, #ff00ff, #0000ff, #00ffff,#ff00ff);
   background-size: 200% 100%;
-  animation: galaxy-gradient 5s infinite linear ;
+  /* animation: galaxy-gradient 5s infinite linear ; */
   z-index:-1;
   filter:drop-shadow(0 0 2px #f5f9f9) drop-shadow(0 0 12px #00ffff) drop-shadow(0 0 15px #ff00ff);
   /* mask-image: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); */
