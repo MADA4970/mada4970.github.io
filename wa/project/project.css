@@ -88,4 +88,6 @@ grid-template-columns: 1fr 1fr;
   
  }
  
-
+navbar {
+  flex-direction: row;
+}
