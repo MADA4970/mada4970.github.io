@@ -141,9 +141,10 @@ nav a:hover {
   bottom: -3px;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #00ffff,#ff00ff, #0000ff, #00ffff);
+  background: linear-gradient(90deg, #ff00ff, #0000ff, #00ffff,#ff00ff);
   background-size: 300% 100%;
   animation: galaxy-gradient 5s infinite linear ;
+  animation-delay: .7s;
   mask-image: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
  
 }
