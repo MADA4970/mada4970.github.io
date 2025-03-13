@@ -33,23 +33,31 @@ white-space:pre-line;
   h3 {
     font-size: 1.3em;
   }
-  
+  a{
+  text-decoration: none;
+
+  }
  .big-container{
 display:grid;
 grid-template-columns: 1fr;
+justify-items:center;
 
  } 
  .the-children {
   position: relative;
   
+  width:60%;
   padding: 10px 20px;
   border-radius: 8px; 
   background-image: url(/wa/img/stars.jpg);
   background-size:25%;
   color: white; 
-  margin: 10px;
+  margin: 20px;
   font-size: 20px;
   text-align: center;
+  margin-top:2.5vw;
+  /* margin-left:auto;
+  margin-right:auto; */
  } 
  
  
@@ -68,24 +76,36 @@ grid-template-columns: 1fr;
   position: relative;
   
  }
+ .date-time{
+  font-size:1.4em;
+ }
+
  .conductor {
+  white-space:pre-line;
   font-weight:bold;
   /* border: 1px solid blue; */
   grid-column: 1/span 2 ;
   grid-row:2;
+  font-size:1.4em;
  }
  .location{
+  white-space:pre-line;
   font-weight:bold;
   /* border: 1px solid blue; */
   grid-column: 1/ span 2 ;
   grid-row:3;
+  font-size:1.4em;
  }
 .rep{
+  
   font-weight:bold;
   white-space:pre-line;
   /* border: 1px solid blue; */
   grid-column: 3/span 2;
   grid-row:2/ span 2;
+ }
+ .rep-size{
+  font-size:1.4em;
  }
  .description{
   text-align:justify;
@@ -93,44 +113,50 @@ grid-template-columns: 1fr;
   grid-column: 1/span 4;
   grid-row:4;
   position: relative;
-  
+  font-size:1.2em
  }
  
  nav{
   
+  background: linear-gradient(90deg, #f17334, #4f4ff9, #00ffff);
+  width:100%;
   font-size:1.5vw;
   height: 2vw;
-  
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
- 
-  background-color: lightseagreen;
-  position:sticky;
   top:0;
-  width:100%;
-  margin:0;
+  position:sticky;
+  
   z-index:10;
  }
  nav ul{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+ justify-items:center;
+  
+ 
+  /* width:100%; */
+ 
   list-style: none;
 }
 
  nav a li{
+  
+
   flex-direction: row;
   /* top:50%; */
   /* font-size:1.8vw; */
   width:10vw;
   text-align: center;
   text-decoration: none;
+ 
   color:black;
-  transition: background-color 0.7s;
+  transition: background-color 0.5s;
  
  
 }
 nav a:hover {
   background-color:blueviolet;
-  transition:background-color 0.5s ;
+  transition:background-color 0.7s ease-in-out ;
 }
 
 /* moving gradient */
