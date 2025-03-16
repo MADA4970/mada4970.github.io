@@ -16,14 +16,9 @@ body {
     overflow-x:hidden;
   }
  
-  /* .who-what-where {
 
-font-weight: bold;
-white-space:pre-line;
-
-  } */
   nav{
- border:solid red;
+
  background: linear-gradient(180deg,#00ffff,#0000ff, #8205f0);
     width:200px;
     font-size:2vw;
@@ -53,7 +48,7 @@ white-space:pre-line;
   
    nav li{
     
-    border:solid blue;
+    
    flex:1;
    }
    nav a{
@@ -272,6 +267,7 @@ footer{
     margin-left:0;
   }
   nav{
+    background: linear-gradient(90deg,#00ffff,#0000ff, #8205f0);
     position:sticky;
     top:0;
    width:100%;
