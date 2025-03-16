@@ -224,16 +224,68 @@ animation: galaxy-gradient 5s infinite  ;
   100% { background-position: 150% 50%; }
 }
 @media(max-width:800px) {
-  nav{
-height:auto;
-font-size: 14px;
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
   }
-  nav ul{
-    flex-wrap:wrap;
+  
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: black;
+    transition: all 0.3s ease;
   }
-  nav a {
-    padding:10px;
-    line-height: normal;
+  
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    /* Show hamburger icon */
+    .hamburger {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    
+    /* Hide regular navbar on mobile */
+    nav ul {
+      position: fixed;
+      top: 50px;
+      right: -100%;
+      height: auto;
+      width: 100%;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.9);
+      transition: right 0.5s ease;
+    }
+    
+    /* Style for when menu is active */
+    nav ul.active {
+      right: 0;
+    }
+    
+    nav li {
+      text-align: center;
+    }
+    
+    nav a {
+      padding: 15px;
+      color: white;
+    }
+    
+    /* X animation for hamburger */
+    .hamburger.active .line1 {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .hamburger.active .line2 {
+      opacity: 0;
+    }
+    
+    .hamburger.active .line3 {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
   }
 
 }
