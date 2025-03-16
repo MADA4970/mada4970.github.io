@@ -181,7 +181,7 @@ background-size: 300% 100%;
   font-size:1.4em;
  }
  .description{
-  text-align:justify;
+  text-align:left;
   /* border: 1px solid blue; */
   grid-column: 1/span 4;
   grid-row:4;
