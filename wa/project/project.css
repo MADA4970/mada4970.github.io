@@ -228,28 +228,24 @@ animation: galaxy-gradient 5s infinite  ;
     margin-bottom: 30px;
   }
   nav ul {
-    justify-content: flex-start; /* Align items to the left */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    scrollbar-width: none; /* Hide scrollbar in Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  overflow-x:auto;
+  scrollbar-width:none;
     height:50px;
+
 }
 
-/* Hide scrollbar in Chrome/Safari/Opera */
-nav ul::-webkit-scrollbar {
-    display: none;
-}
+
+
 
 nav li {
   /* border:solid red; */
- 
-    flex: 0 0 auto; /* Don't grow or shrink, stay at natural width */
+ font-size:2em;
+  
 }
 
 nav a {
     white-space: nowrap; 
-    padding: 0 20px; /* More padding for easier touch targets */
+    padding: 0 20px; 
 }
 .the-children{
   width:90%;
