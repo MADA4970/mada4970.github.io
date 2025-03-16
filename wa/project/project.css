@@ -251,4 +251,7 @@ nav a {
     white-space: nowrap; 
     padding: 0 20px; /* More padding for easier touch targets */
 }
+.the-children{
+  width:90%;
+}
 }
