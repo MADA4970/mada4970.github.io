@@ -18,7 +18,52 @@ font-weight: bold;
 white-space:pre-line;
 
   } */
-
+  nav{
+  
+    background: linear-gradient(90deg,#00ffff,#0000ff, #8205f0);
+    width:100%;
+    font-size:1.5vw;
+    height: 50px;
+    top:0;
+    position:sticky;
+    font-size:1em;
+    z-index:10;
+    display:flex;
+    justify-content:center;
+   }
+   nav ul{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+   /* justify-items:center; */
+    height: 2vh;
+   
+    width:100%;
+   
+    list-style: none;
+    padding:0;
+    margin:0;
+  }
+  
+   nav li{
+   flex:1;
+   }
+   nav a{
+    /* border:solid red; */
+    display:block;
+    text-decoration: none;
+   height:50px;
+   line-height: 50px;
+    color:rgb(248, 242, 242);
+    transition: background-color 0.5s;
+   justify-content: center;
+   align-items: center;
+  }
+  nav a:hover {
+    background-color:#8205f0;
+    
+    transition:background-color 0.7s ease-in-out ;
+  }
 
   h1 {
     
@@ -60,7 +105,15 @@ justify-items:center;
   margin-right:auto; */
  } 
  
- 
+ .the-children:hover {
+transform:translateY(-5px);
+/* box-shadow: 0 10px 20px rgba(0,255,255,0.3); */
+background: linear-gradient(90deg, #8205f0, #0000ff, #00ffff,#8205f0);
+
+background-size: 300% 100%;
+animation: galaxy-gradient 5s infinite  ;
+
+ }
  .concerts-org{
  
   display:grid;
@@ -116,48 +169,7 @@ justify-items:center;
   font-size:1.2em
  }
  
- nav{
-  
-  background: linear-gradient(90deg, #f17334, #4f4ff9, #00ffff);
-  width:100%;
-  font-size:1.5vw;
-  height: 2vw;
-  top:0;
-  position:sticky;
-  
-  z-index:10;
- }
- nav ul{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
- justify-items:center;
-  
  
-  /* width:100%; */
- 
-  list-style: none;
-}
-
- nav a li{
-  
-
-  flex-direction: row;
-  /* top:50%; */
-  /* font-size:1.8vw; */
-  width:10vw;
-  text-align: center;
-  text-decoration: none;
- 
-  color:black;
-  transition: background-color 0.5s;
- 
- 
-}
-nav a:hover {
-  background-color:blueviolet;
-  transition:background-color 0.7s ease-in-out ;
-}
 
 /* moving gradient */
 .concerts::after {
@@ -168,7 +180,7 @@ nav a:hover {
   bottom: -3px;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #ff00ff, #0000ff, #00ffff,#ff00ff);
+  background: linear-gradient(90deg, #8205f0, #0000ff, #00ffff,#8205f0);
   background-size: 300% 100%;
   animation: galaxy-gradient 5s infinite linear ;
   mask-image: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
@@ -181,7 +193,7 @@ nav a:hover {
   bottom: -3px;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #ff00ff, #0000ff, #00ffff,#ff00ff);
+  background: linear-gradient(90deg, #8205f0, #0000ff, #00ffff,#8205f0);
   background-size: 300% 100%;
   animation: galaxy-gradient 5s infinite linear ;
   animation-delay: .7s;
@@ -194,11 +206,11 @@ nav a:hover {
   position: absolute;
   inset:-3px;
   border-radius: 10px;
-  background: linear-gradient(90deg, #ff00ff, #0000ff, #00ffff,#ff00ff);
+  background: linear-gradient(90deg, #8205f0, #0000ff, #00ffff,#8205f0);
   background-size: 200% 100%;
   /* animation: galaxy-gradient 5s infinite linear ; */
   z-index:-1;
-  filter:drop-shadow(0 0 2px #f5f9f9) drop-shadow(0 0 12px #00ffff) drop-shadow(0 0 15px #ff00ff);
+  filter:drop-shadow(0 0 2px #f5f9f9) drop-shadow(0 0 12px #00ffff) drop-shadow(0 0 30px #8205f0);
   /* mask-image: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); */
 }
 
@@ -210,4 +222,18 @@ nav a:hover {
   /* 50%{ background-position: 100% 50%; } */
   
   100% { background-position: 150% 50%; }
+}
+@media(max-width:800px) {
+  nav{
+height:auto;
+font-size: 14px;
+  }
+  nav ul{
+    flex-wrap:wrap;
+  }
+  nav a {
+    padding:10px;
+    line-height: normal;
+  }
+
 }
