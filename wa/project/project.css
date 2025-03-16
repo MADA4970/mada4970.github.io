@@ -22,11 +22,11 @@ white-space:pre-line;
   
     background: linear-gradient(90deg,#00ffff,#0000ff, #8205f0);
     width:100%;
-    font-size:1.5vw;
+    font-size:2vw;
     height: 50px;
     top:0;
     position:sticky;
-    font-size:1em;
+    /* font-size:1em; */
     z-index:10;
     display:flex;
     justify-content:center;
@@ -223,69 +223,69 @@ animation: galaxy-gradient 5s infinite  ;
   
   100% { background-position: 150% 50%; }
 }
-@media(max-width:800px) {
-  .hamburger {
-    display: none;
-    cursor: pointer;
-    padding: 15px;
-  }
-  
-  .hamburger div {
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background-color: black;
-    transition: all 0.3s ease;
-  }
-  
-  /* Media query for mobile devices */
-  @media (max-width: 768px) {
-    /* Show hamburger icon */
-    .hamburger {
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-    
-    /* Hide regular navbar on mobile */
-    nav ul {
-      position: fixed;
-      top: 50px;
-      right: -100%;
-      height: auto;
-      width: 100%;
-      flex-direction: column;
-      background: rgba(0, 0, 0, 0.9);
-      transition: right 0.5s ease;
-    }
-    
-    /* Style for when menu is active */
-    nav ul.active {
-      right: 0;
-    }
-    
-    nav li {
-      text-align: center;
-    }
-    
-    nav a {
-      padding: 15px;
-      color: white;
-    }
-    
-    /* X animation for hamburger */
-    .hamburger.active .line1 {
-      transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    .hamburger.active .line2 {
-      opacity: 0;
-    }
-    
-    .hamburger.active .line3 {
-      transform: rotate(45deg) translate(-5px, -6px);
-    }
-  }
+@media(max-width:599px) {
+  nav ul {
+    justify-content: flex-start; /* Align items to the left */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
 
+/* Hide scrollbar in Chrome/Safari/Opera */
+nav ul::-webkit-scrollbar {
+    display: none;
+}
+
+nav li {
+    flex: 0 0 auto; /* Don't grow or shrink, stay at natural width */
+}
+
+nav a {
+    white-space: nowrap; /* Prevent text wrapping */
+    padding: 0 20px; /* More padding for easier touch targets */
+}
+}
+@media (max-width: 599px) {
+  .the-children {
+      width: 85%;
+  }
+  
+  nav {
+      height: auto;
+      font-size: 16px;
+  }
+  
+  nav ul {
+      flex-wrap: wrap;
+  }
+  
+  nav a {
+      padding: 10px;
+      line-height: normal;
+  }
+  
+  .concerts-org {
+      grid-template-columns: 1fr;
+  }
+  
+  .conductor, .location, .rep {
+      grid-column: 1 / span 4;
+  }
+  
+  .conductor {
+      grid-row: 2;
+  }
+  
+  .location {
+      grid-row: 3;
+  }
+  
+  .rep {
+      grid-row: 4;
+  }
+  
+  .description {
+      grid-row: 5;
+  }
 }

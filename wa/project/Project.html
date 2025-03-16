@@ -14,11 +14,6 @@
 <h1>ZΩRBLAXian VOID PULSE COLLECTIVE</h1>
 <h2>Concert Descriptions Compilation</h2>
 <nav>
-    <div class="hamburger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-    </div>
     <ul>
         <li> <a href="#concert1">Concert 1</a></li>
             <li> <a href="#concert2">Concert 2</a></li>
@@ -32,23 +27,6 @@
                                             <li><a href="#concert10">Concert 10</a></li>
 </ul>
 </nav>
-<script>
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('nav ul');
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-</script>
 <div class="big-container">
     <div id="concert1"></div>
  <div class="the-children">
