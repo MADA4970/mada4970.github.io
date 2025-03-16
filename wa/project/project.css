@@ -19,7 +19,7 @@ white-space:pre-line;
 
   } */
   nav{
-  
+ 
     background: linear-gradient(90deg,#00ffff,#0000ff, #8205f0);
     width:100%;
     font-size:2vw;
@@ -224,12 +224,16 @@ animation: galaxy-gradient 5s infinite  ;
   100% { background-position: 150% 50%; }
 }
 @media(max-width:599px) {
+  nav{
+    margin-bottom: 30px;
+  }
   nav ul {
     justify-content: flex-start; /* Align items to the left */
     overflow-x: auto; /* Enable horizontal scrolling */
     scrollbar-width: none; /* Hide scrollbar in Firefox */
     -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    height:50px;
 }
 
 /* Hide scrollbar in Chrome/Safari/Opera */
@@ -238,54 +242,13 @@ nav ul::-webkit-scrollbar {
 }
 
 nav li {
+  /* border:solid red; */
+ 
     flex: 0 0 auto; /* Don't grow or shrink, stay at natural width */
 }
 
 nav a {
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap; 
     padding: 0 20px; /* More padding for easier touch targets */
 }
-}
-@media (max-width: 599px) {
-  .the-children {
-      width: 85%;
-  }
-  
-  nav {
-      height: auto;
-      font-size: 16px;
-  }
-  
-  nav ul {
-      flex-wrap: wrap;
-  }
-  
-  nav a {
-      padding: 10px;
-      line-height: normal;
-  }
-  
-  .concerts-org {
-      grid-template-columns: 1fr;
-  }
-  
-  .conductor, .location, .rep {
-      grid-column: 1 / span 4;
-  }
-  
-  .conductor {
-      grid-row: 2;
-  }
-  
-  .location {
-      grid-row: 3;
-  }
-  
-  .rep {
-      grid-row: 4;
-  }
-  
-  .description {
-      grid-row: 5;
-  }
 }
