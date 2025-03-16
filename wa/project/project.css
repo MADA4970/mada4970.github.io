@@ -15,6 +15,7 @@ body {
     background-repeat: repeat;
     
   }
+ 
   /* .who-what-where {
 
 font-weight: bold;
@@ -239,6 +240,9 @@ background-size: 300% 100%;
   100% { background-position: 150% 50%; }
 }
 @media(max-width:599px) {
+  [id] {
+    scroll-margin-top:50px;
+  }
   body{
     width:100%;
     margin-left:0;
