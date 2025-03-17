@@ -273,7 +273,7 @@ footer{
   
   100% { background-position: 150% 50%; }
 }
-@media(max-width:599px) {
+@media(max-width:600px) {
   [id] {
     scroll-margin-top:50px;
   }
@@ -329,5 +329,8 @@ footer{
   margin-left:0;
   
   width:100%;
+}
+.rep, .conductor,.location {
+  font-size:1.2em;
 }
 }
