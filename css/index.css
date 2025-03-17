@@ -330,11 +330,15 @@ footer{
   100% { background-position: 150% 50%; }
 }
 @media(max-width:600px) {
+  *{
+    border: 1px solid red;
+  }
   [id] {
     scroll-margin-top:100px;
   }
   html, body{
-    max-width:100%;
+    overflow-x:hidden !important;
+    max-width:100vw;
     margin-left:0;
     margin-right:0;
   }
@@ -389,7 +393,7 @@ nav a {
 footer{
   /* border:solid red; */
   max-width:99%;
-  overflow-x:hidden; 
+  overflow-x:hidden !important; 
   height:auto;
   margin-left:0;
   margin-right:0;
