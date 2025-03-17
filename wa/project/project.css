@@ -317,7 +317,7 @@ nav a {
   width:85%;
 }
 .rep{
-  margin-left:10px;
+  margin-left:20px;
 }
 .big-container{
   margin:0;
@@ -330,7 +330,5 @@ footer{
   
   width:100%;
 }
-.rep, .conductor,.location {
-  font-size:1.2rem;
-}
+
 }
