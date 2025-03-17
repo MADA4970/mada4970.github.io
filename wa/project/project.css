@@ -330,9 +330,9 @@ footer{
   100% { background-position: 150% 50%; }
 }
 @media(max-width:600px) {
-  [id] {
+  /* [id] {
     scroll-margin-top:50px;
-  }
+  } */
   html, body{
     max-width:100%;
     margin-left:0;
