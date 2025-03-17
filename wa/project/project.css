@@ -387,7 +387,7 @@ nav a {
   margin-top:-35px;
 }
 footer{
-  border:solid red;
+  /* border:solid red; */
   max-width:100%;
   overflow-x:hidden; 
   height:auto;
