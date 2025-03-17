@@ -386,6 +386,7 @@ nav a {
   margin-top:-35px;
 }
 footer{
+  overflow-x:hidden;
   height:auto;
   margin-left:0;
   margin-right:0;
