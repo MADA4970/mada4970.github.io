@@ -330,9 +330,7 @@ footer{
   100% { background-position: 150% 50%; }
 }
 @media(max-width:600px) {
-  *{
-    border: 1px solid red;
-  }
+ 
   [id] {
     scroll-margin-top:100px;
   }
