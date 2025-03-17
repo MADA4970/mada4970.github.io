@@ -375,6 +375,7 @@ nav a {
 }
 .rep{
   margin-left:20px;
+  margin-top:-5px;
 }
 .big-container{
   margin:0;
@@ -386,6 +387,7 @@ nav a {
   margin-top:-35px;
 }
 footer{
+  max-width:100%;
   overflow-x:hidden;
   height:auto;
   margin-left:0;
@@ -394,8 +396,11 @@ footer{
   font-size:1.1rem;
   width:100%;
 }
-.conductor, .location,.rep-size{
+.conductor, .location, .rep{
   font-size:1.4rem;
+}
+.conductor h3, .location h3,.rep-size{
+  font-size:28px;
 }
 .rep{
   font-size:1rem;
