@@ -1,5 +1,11 @@
-.megrim-regular {
+/* .megrim-regular {
   font-family: "Megrim", system-ui;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -13,7 +19,7 @@ body {
    text-align:center;
     align-items: center;
     background-color: rgb(12, 12, 12);
-    font-family:'Megrim','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Audiowide',sans-serif;
     
     background-image: url(/wa/img/stars.jpg);
     
@@ -78,21 +84,22 @@ body {
 
   h1 {
     
-    font-size: 3em;
+    font-size: 3rem;
     
   }
   
   h2 {
-    font-size: 1.5em;
+    font-size: 1.9rem;
   }
 
-  h3 {
-    font-size: 1.3em;
+  h3, .rep-size {
+    font-size: 1.7rem;
+   
   }
   h1, h2, h3 {
-    
+    font-family: "megrim";
     width:100%;
-    text-align:center;
+    /* text-align:center; */
   }
   a{
   text-decoration: none;
@@ -109,14 +116,14 @@ justify-items:center;
  .the-children {
   position: relative;
   max-width:800px;
-  width:60%;
+  width:85%;
   padding: 10px 20px;
   border-radius: 8px; 
   background-image: url(/wa/img/stars.jpg);
   background-size:25%;
   color: white; 
   margin: 20px;
-  font-size: 20px;
+  /* font-size: 20px; */
   text-align: center;
   /* margin-top:2.6vw; */
   /* margin-left:auto;
@@ -154,14 +161,42 @@ background-size: 300% 100%;
  .conductor, .location, .rep{
   text-align:left;
  }
- .conductor {
+ .conductor h3::after,.location h3::after{
+  content: "";
+  position: absolute;
+  left: 0;
+ margin-top:35px;
+  
+  width: 40%;
+  height: 4px;
+  background: linear-gradient(90deg, #0000ff, #00ffff,#8205f0,#0000ff);
+  background-size: 300% 100%;
+  animation: galaxy-gradient 5s infinite linear ;
+  mask-image: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
  
+ }
+ .rep-size::after{
+  content: "";
+  position: absolute;
+  
+ 
+  
+  width: 40%;
+  height: 4px;
+  background: linear-gradient(90deg, #0000ff, #00ffff,#8205f0,#0000ff);
+  background-size: 300% 100%;
+  animation: galaxy-gradient 5s infinite linear ;
+  mask-image: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+ 
+ }
+ .conductor {
+  text-align:left;
   white-space:pre-line;
   font-weight:bold;
   /* border: 1px solid blue; */
   grid-column: 1/span 2 ;
   grid-row:2;
-  font-size:1.4em;
+  font-size:1.4rem;
  }
  .location{
   white-space:pre-line;
@@ -169,11 +204,11 @@ background-size: 300% 100%;
   /* border: 1px solid blue; */
   grid-column: 1/ span 2 ;
   grid-row:3;
-  font-size:1.3em;
+  font-size:1.4rem;
  }
 .rep{
   align-self:start;
-  
+  font-size:1.2rem;
   font-weight:bold;
   white-space:pre-line;
   /* border: 1px solid blue; */
@@ -184,7 +219,8 @@ background-size: 300% 100%;
  
  }
  .rep-size{
-  font-size:1.4em;
+  font-family: "megrim";
+  /* font-size:1.4rem; */
  }
  .description{
   text-align:left;
@@ -194,8 +230,16 @@ background-size: 300% 100%;
   position: relative;
   font-size:1.2em
  }
- 
- 
+ .notes{
+  
+  text-align:center;
+  position:relative;
+ }
+ .warning{
+  margin-top:20px;
+  color:#8205f0
+ }
+
 
 /* moving gradient */
 .concerts::after {
@@ -203,7 +247,21 @@ background-size: 300% 100%;
   position: absolute;
   left: 0;
   
-  bottom: -3px;
+  bottom: -15px;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #8205f0, #0000ff, #00ffff,#8205f0);
+  background-size: 300% 100%;
+  animation: galaxy-gradient 5s infinite linear ;
+  mask-image: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+ 
+}
+
+.notes::before {
+  content: "";
+  position:absolute;
+  left: 0;
+  top:-12px;
   width: 100%;
   height: 4px;
   background: linear-gradient(90deg, #8205f0, #0000ff, #00ffff,#8205f0);
@@ -215,8 +273,8 @@ background-size: 300% 100%;
 .description::after {
   content: "";
   position: absolute;
-  top:0;
-  bottom: -3px;
+  top:10px;
+  bottom: 0px;
   width: 100%;
   height: 4px;
   background: linear-gradient(90deg, #8205f0, #0000ff, #00ffff,#8205f0);
@@ -330,5 +388,10 @@ footer{
   
   width:100%;
 }
-
+.conductor, .location,.rep-size{
+  font-size:1.4rem;
+}
+.rep{
+  font-size:1rem;
+}
 }
