@@ -386,10 +386,11 @@ nav a {
   margin-top:-35px;
 }
 footer{
+  height:auto;
   margin-left:0;
   margin-right:0;
-  padding:30px;
-  font-size:1rem;
+  padding:20px;
+  font-size:1.1rem;
   width:100%;
 }
 .conductor, .location,.rep-size{
