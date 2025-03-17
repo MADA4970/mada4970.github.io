@@ -334,8 +334,14 @@ footer{
   [id] {
     scroll-margin-top:100px;
   }
-  html, body{
+  html{
     /* overflow-x:hidden !important; */
+    max-width:100vw;
+    margin-left:0;
+    margin-right:0;
+  }
+  body{
+    overflow-x:hidden !important;
     max-width:100vw;
     margin-left:0;
     margin-right:0;
