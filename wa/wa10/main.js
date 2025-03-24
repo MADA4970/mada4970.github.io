@@ -2,10 +2,10 @@
 const customName = document.getElementById('customname');
 const randomize = document.querySelector('.randomize');
 const story = document.querySelector('.story');
-const storyText = "It was 94 fahrenheit outside, so :insertX: went for a walk. When they got to :insertY:, they stared in horror for a few moments, then :insertZ:. Bob saw the whole thing, but was not surprised — :insertX: weighs 300 pounds, and it was a hot day."
-const insertX =["Willy the Goblin", "Big Daddy", "Father Christmas"]
-const insertY =["the soup kitchen","Disneyland", "the White House"]
-const insertZ = ["spontaneously combusted", "melted into a puddle on the sidewalk", "turned into a slug and crawled away"]
+const storyText = "During the space mission where temperatures reached 200 fahrenheit, :insertX: had to make an emergency maneuver. When encountering :insertY:, the pilot had only seconds to react, and immediately started :insertZ:. Captain Bob monitored the situation from mission control, and thought 'Why would I stop them?' :insertX: had successfully completed training at 300 pounds of pressure, and was having a good time."
+const insertX =["Mr. Fahrenheit", "Lady Godiva", "a supersonic woman"]
+const insertY =["a shooting star", "a racing car", "a rocket ship"]
+const insertZ = ["travelling at the speed of light", "burning through the sky", "defying the laws of gravity"]
 
 
 
@@ -33,8 +33,8 @@ const zItem = randomValueFromArray(insertZ)
 
   if(document.getElementById("uk").checked) {
     const weight = Math.round(300/14) + ' stone';
-    const temperature =  Math.round((94-32)*5/9) + ' centigrade' ;
-newStory = newStory.replace('94 fahrenheit', temperature)
+    const temperature =  Math.round((200-32)*5/9) + ' centigrade' ;
+newStory = newStory.replace('200 fahrenheit', temperature)
 newStory = newStory.replace('300 pounds', weight)
   }
 
