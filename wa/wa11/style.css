@@ -13,8 +13,13 @@ body {
   display: block;
   width: 640px;
   height: 480px;
+  object-fit: contain;
 }
-
+.displayed-img{
+  width:100%;
+  height:100%;
+  object-fit: contain;
+}
 .overlay {
   position: absolute;
   top: 0;
@@ -38,6 +43,8 @@ button {
 .thumb-bar img {
   display: block;
   width: 20%;
+  height:100px;
   float: left;
   cursor: pointer;
+  object-fit:cover;
 }
