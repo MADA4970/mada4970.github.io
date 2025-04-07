@@ -1,11 +1,12 @@
 h1 {
-  font-family: helvetica, arial, sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
 }
 
 body {
   width: 640px;
   margin: 0 auto;
+  background-color:rgb(204, 242, 242);
 }
 
 .full-img {
@@ -38,6 +39,11 @@ button {
   cursor: pointer;
   top: 2px;
   left: 2px;
+  
+}
+button:hover{
+  background-color:blueviolet;
+    transition:background-color 0.5s ;
 }
 
 .thumb-bar img {
@@ -48,3 +54,4 @@ button {
   cursor: pointer;
   object-fit:cover;
 }
+
