@@ -4,10 +4,22 @@ h1 {
 }
 
 body {
-  width: 640px;
-  margin: 0 auto;
-  background-color:rgb(204, 242, 242);
-}
+  margin-left:200px;
+  /* width:calc(100% - 200px);  */
+   display:flex;
+   flex-direction:column;
+    color: rgb(244, 243, 241);
+   text-align:center;
+    align-items: center;
+    background-color: rgb(12, 12, 12);
+    font-family:'Audiowide',sans-serif;
+    
+    background-image: url(/wa/img/stars.jpg);
+    
+    background-size:25%;
+    background-repeat: repeat;
+    overflow-x:hidden;
+  }
 
 .full-img {
   position: relative;
@@ -32,13 +44,14 @@ body {
 
 button {
   border: 0;
-  background: rgba(150,150,150,0.6);
-  text-shadow: 1px 1px 1px white;
+  background: rgba(226, 128, 15, 0.6);
+  text-shadow: 1px 1px 1px rgb(3, 3, 3);
   border: 1px solid #999;
   position: absolute;
   cursor: pointer;
   top: 2px;
   left: 2px;
+  color:white;
   
 }
 button:hover{
