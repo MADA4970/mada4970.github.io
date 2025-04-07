@@ -13,9 +13,7 @@ body {
     align-items: center;
     background-color: rgb(12, 12, 12);
     font-family:'Audiowide',sans-serif;
-    
     background-image: url(/wa/img/stars.jpg);
-    
     background-size:25%;
     background-repeat: repeat;
     overflow-x:hidden;
