@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Textures - A-Frame School</title>
+    <meta name="description" content="Textures - A-Frame School">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-sky src="./Gaia-360.png"></a-sky>
+      <!-- <a-sphere src="" radius="1" position="0 0.5 -3"></a-sphere> -->
+       <!-- <a-sphere src="" radius="0.65" position="0 1.8 -3"></a-sphere> -->
+       <!-- <a-sphere src="" radius="0.45" position="0 2.7 -3"></a-sphere> -->
+       <a-sphere src="" radius="0.1" position="0.17 0.1 -2.5" color="black"></a-sphere>
+      <a-sphere src="" radius="0.1" position="-0.15 0.1 -2.5" color = "black"></a-sphere>
+      <a-assets>
+        <img id="sand" src="sand texture.jpg">
+      </a-assets>
+      <a-cone src="" color = "orange" radius-bottom=".1" radius-top="0" height = "0.5" position="0 0.1 -2.5" rotation = "90"></a-cone>
+      
+      <!-- SAND CASTLE -->
+      <a-box src ="#sand" color="tan" depth="4" height="4" width="4" position="-5 2 -10" ></a-box>
+      <!-- Q4 -->
+      <a-cylinder src="#sand" height="2" radius=".8" position="-3.8 4 -9"></a-cylinder>
+      <a-cone src="#sand" radius-bottom="1" radius-top="0" height = "1" position="-3.8 5.5 -9" rotation = "0"></a-cone>
+      <!-- Q3 -->
+      <a-cylinder src="#sand" height="2" radius=".8" position="-6.2 4 -9"></a-cylinder>
+      <a-cone src="#sand" radius-bottom="1" radius-top="0" height = "1" position="-6.2 5.5 -9" rotation = "0"></a-cone>
+      
+      
+      
+      <!-- <a-plane src="../sand texture.jpg" rotation="-90 0 0" height="100" width="100" color = "tan" scale="fit"></a-plane> -->
+      <!-- <a-plane rotation="-90 0 0" height="100" width="100" color = "white"></a-plane> -->
+      <a-entity
+      gltf-model="./sand/scene.gltf"
+      position="-15 2 0"
+      scale=".01 .01 .01"
+      rotation="0 0 0">
+    </a-entity>
+      <a-entity
+      gltf-model="./olaf_3d_rigged/scene.gltf"
+      position="0 0 -5"
+      scale="1 1 1"
+      rotation="0 0 0">
+    </a-entity>
+    <a-entity
+      gltf-model="./puddle/scene.gltf"
+      position="0 0.1 -2"
+      scale="0.01 0.01 0.01"
+      rotation="0 0 0">
+    </a-entity>
+    <a-entity
+      gltf-model="./sun/scene.gltf"
+      position="0 10 -55"
+      scale="20 20 20"
+      rotation="0 0 0">
+    </a-entity>
+   
+      <a-light type="ambient" color="#445451"></a-light>
+      <a-light type="point" intensity="2" position="2 4 4"></a-light>
+    
+    </a-scene>
+   
+  </body>
+</html>
