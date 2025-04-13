@@ -2,10 +2,34 @@ const newBtn = document.querySelector("#js-new-quote").addEventListener("click",
 const answerBtn = document.querySelector('#js-tweet').addEventListener('click', displayAnswer);
 
 const endpoint = "https://trivia.cyberwisp.com/getrandomchristmasquestion";
+const transEndpoint = "https://libretranslate.com/translate"
+
 let current = {
     question:'',
-    answer:''
+    answer:'',
+    questionTranslation:'',
+    answerTranslation:''
 }
+async function translateText(text,target = 'es') {
+    if(!text) return '';
+
+    try {
+        const data = {
+            q: text,
+            source:'en',
+            target: target,
+            format: "text"
+        }
+
+        const response = await fetch(transEndpoint, {
+            method: 'POST',
+            heders : {
+                'Content-Type' : 'application/json'
+            }
+        })
+    }
+}
+
 async function getQuote(){
     try{
         const response = await fetch(endpoint);
