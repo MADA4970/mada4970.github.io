@@ -38,9 +38,32 @@
     .then(response => response.text())
     .then(text => displayCatInfo(text))
 
+    async function populate() {
+    const response = await fetch(request)
+    const catString = await response.json();
+
+    populateHeader(catString);
+    populateCats(catString);
+  }
+  function populateHeader(obj) {
+    const header = document.querySelector("header");
+    const myH1 = document.createElement("h1");
+    myH1.textContent = obj.name;
+    header.appendChild(myH1);
+
+    
+    para1.textContent = `Hometown: ${obj.homeTown} // Formed: ${obj.formed}`;
+    header.appendChild(para1);
+  }
+
     function displayCatInfo(catString) {
+      const cats = obj.names;
       let total = 0;
       let male = 0;
+      let female = 0;
+      for(const cat of cats) {
+        section.textContent = cat.name
+      }
 
       // Add your code here
 
