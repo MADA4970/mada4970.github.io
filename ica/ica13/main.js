@@ -24,6 +24,7 @@ function loop() {
     ctx.fillStyle = "rgb(0 0 0 / 25%)";
     ctx.fillRect(0, 0, width, height);
   
+   
     for (const ball of balls) {
       ball.draw();
       ball.update();
@@ -34,30 +35,39 @@ function loop() {
   }
 
 class Ball {
-    constructor(x, y, velX, velY, color, size) {
+    constructor(x, y, velX, velY, color, size, count) {
       this.x = x;
       this.y = y;
       this.velX = velX;
       this.velY = velY;
       this.color = color;
       this.size = size;
-
+      this.count = count;
     }
     draw() {
         ctx.beginPath();
         ctx.fillStyle = this.color;
         ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
         ctx.fill();
+
+        ctx.fillStyle = "white";
+        ctx.font = "16px Arial"
+        ctx.TextBaseline = "middle";
+        ctx.fillText(`${this.count}`, this.x,this.y)
       }
       update (){
+        
         if(this.x + this.size>=width || this.x - this.size <= 0){
             this.velX = - this.velX
+            this.count = (this.count+1) % 10
         }
         if(this.y+this.size>=height|| this.y-this.size <= 0){
             this.velY = - this.velY
+            this.count = (this.count+1) % 10
         }
         this.x +=this.velX;
         this.y+= this.velY
+        
     }
     collisionDetect() {
         for (const ball of balls) {
@@ -67,7 +77,9 @@ class Ball {
             const distance = Math.sqrt(dx * dx + dy * dy);
     
             if (distance < this.size + ball.size) {
-              ball.color = this.color = randomRGB();
+              this.velX = -this.velX;
+              this.velY= -this.velY
+              this.count = (this.count+1) % 10
             }
         }
     }
@@ -77,6 +89,7 @@ const balls = [];
 
 while (balls.length < 25) {
   const size = random(10, 20);
+  const count = random(0,9);
   const ball = new Ball(
     // ball position always drawn at least one ball width
     // away from the edge of the canvas, to avoid drawing errors
@@ -86,15 +99,12 @@ while (balls.length < 25) {
     random(-7, 7),
     randomRGB(),
     size,
+    count % 10,
   );
 
   balls.push(ball);
 }
 
-    const testBall = new Ball(50, 100, 4, 4, "blue", 10);
-    testBall.x;
-    testBall.size;
-    testBall.color;
-    testBall.draw();
+   
     loop();
     
