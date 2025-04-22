@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Galaxy Visualization</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene renderer="colorManagement: true;">
+      <a-sky color="black"></a-sky>
+      
+  
+      <a-plane rotation="-90 0 0" height="100" width="100" color="white"></a-plane>
+      
+      <!-- Galaxy model with proper settings for vertex colors -->
+      <a-entity
+        gltf-model="./inside_galaxy/scene.gltf"
+        scale="100 100 100"
+        position="0 0 0">
+      </a-entity>
+      <a-entity
+        gltf-model="./in_space_female/scene.gltf"
+        scale="10 10 10"
+        position="0 10 -50">
+      </a-entity>
+      <!-- Ambient light to ensure the vertex colors are visible -->
+      <a-light type="ambient" intensity="1.0"></a-light>
+    </a-scene>
+  </body>
+</html>

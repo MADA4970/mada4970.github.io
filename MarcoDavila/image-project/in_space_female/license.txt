@@ -1,0 +1,11 @@
+Model Information:
+* title:	In space (female)
+* source:	https://sketchfab.com/3d-models/in-space-female-cc360b08e6fc42e2814c6ee781ea0618
+* author:	Vintar (https://sketchfab.com/vintar)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "In space (female)" (https://sketchfab.com/3d-models/in-space-female-cc360b08e6fc42e2814c6ee781ea0618) by Vintar (https://sketchfab.com/vintar) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
