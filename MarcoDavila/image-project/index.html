@@ -3,27 +3,63 @@
   <head>
     <title>Galaxy Visualization</title>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+   
   </head>
   <body>
-    <a-scene renderer="colorManagement: true;">
-      <a-sky color="black"></a-sky>
+    <a-scene renderer="colorManagement: true; physicallyCorrectLights: true;">
+      <a-assets>
+        
+        <a-asset-item id="shrine-model" src="./fight/shrine.glb"></a-asset-item>
+        <a-asset-item id="gojo-model" src="./fight/gojo.glb"></a-asset-item>
+        <a-asset-item id="naruto-model" src="./fight/naruto1.glb"></a-asset-item>
+
+        <img id="sky-texture" src="./fight/malevolentShrine360.png">
+        <img id="blue-texture" src="./fight/blue.png">
+
+      </a-assets>
+      <a-sky src="/MarcoDavila/image-project/fight/malevolentShrine360.png" rotation="0 90 -70"></a-sky>
       
   
-      <a-plane rotation="-90 0 0" height="100" width="100" color="white"></a-plane>
+      <a-plane src="/MarcoDavila/image-project/fight/blue.png" rotation="-90 0 0" height="100" width="100" color="white"></a-plane>
       
       
       <a-entity
-        gltf-model="./inside_galaxy/scene.gltf"
+        gltf-model="./fight/gojo.glb"
         scale="2 2 2"
-        position="15 20 -25">
-      </a-entity>
+        position="-4 0 -5"
+        rotation="0 90 0"
+        ></a-entity>
+        
+      
       <a-entity
-        gltf-model="./in_space_female/scene.gltf"
-        scale="10 10 10"
-        position="0 10 -50">
+        gltf-model="./fight/shrine.glb"
+        scale="100 100 100"
+        position="0 0 -50">
       </a-entity>
+      
+      <a-entity
+      gltf-model="./fight/naruto1.glb"
+      scale="15 15 15"
+      position="4 0 -5"
+      rotation="0 -90 0"
+      >
+      <a-entity
+      gltf-model="./fight/rasenshuriken.glb"
+      scale=".05 .05 .05"
+      position="-.075 .125 0"
+      rotation="0 0 45"
+      ></a-entity>
 
-      <a-light type="ambient" intensity="1.0"></a-light>
+      <a-entity
+      gltf-model="./fight/rasenshuriken.glb"
+      scale=".05 .05 .05"
+      position=".075 .125 0"
+      rotation="0 0 -45"
+      ></a-entity>
+
+    </a-entity>
+      <a-light type="ambient" intensity="3.14159"></a-light>
+      
     </a-scene>
   </body>
 </html>
