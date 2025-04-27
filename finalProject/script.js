@@ -2,9 +2,9 @@
 
 let stars = [];
 let phoneInput;
-let clearBtn;
 let phoneNumber='';
 let maxNums=10;
+
 
 class Star {
   constructor() {
@@ -12,7 +12,7 @@ class Star {
     this.y = random(-height / 2, height / 2);
     this.z = random(width);
     this.pz = this.z;
-    this.number = floor(random(9))
+    this.number = floor(random(10))
     this.clicked = false
   }
 
@@ -21,7 +21,7 @@ class Star {
     if (this.z < 1) {
       this.z = width;
       this.x = random(-width / 2, width / 2);
-      this.y = random(0, height / 2);
+      this.y = random(0, height);
       this.pz = this.z;
     }
   }
@@ -44,12 +44,13 @@ class Star {
   
      fill(255);
     noStroke();
-     ellipse(sx, sy, 40, 40);
+     ellipse(sx, sy, 5*r, 5*r);
     stroke(255);
-     textSize(16)
+    textAlign(CENTER,CENTER)
+     textSize(3*r)
     
     fill(0)
-    text(this.number,sx-4,sy+4)
+    text(this.number,sx,sy)
     // strokeWeight(10)
     // line(px, py, sx, sy); // Draw the trailing effect of the star
 
@@ -65,10 +66,10 @@ class Star {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight/2);
-
-//  let clearBtn = document.getElementById(clear-btn);
-//  clearBtn.addEventListener('click', clearphoneNumber);
+  createCanvas(windowWidth, windowHeight);
+  phoneInput = document.querySelector('#phone-input')
+  clearBtn = document.getElementById('clear-btn');
+  clearBtn.addEventListener('click', clearPhoneNumber);
   // Generate stars
   for (let i = 0; i < 100; i++) {
     stars.push(new Star());
@@ -95,10 +96,10 @@ function mousePressed(){
             console.log("star clicked! number:", star.number)
             phoneNumber+=star.number;
             star.clicked = true;
-            let phoneInput = document.querySelector('.phone-input')
+            
             if(phoneInput){
             phoneInput.value = formatPhoneNumber(phoneNumber)
-            formatPhoneNumber(phoneInput)
+            // formatPhoneNumber(phoneInput)
 
           
             }
@@ -126,4 +127,12 @@ function formatPhoneNumber(phoneInput) {
     
     return formatted;
 }
+
+
+
+function clearPhoneNumber(){
+  phoneNumber= '';
+  document.getElementById('phone-input').value ='';
+}
+
 

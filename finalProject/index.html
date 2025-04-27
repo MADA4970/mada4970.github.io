@@ -2,24 +2,21 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Angular phone number filtering on input</title>
+  <title>Gotta be quicker than that</title>
   <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
 <link rel="stylesheet" href="./style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
-<script src="/finalProject/script.js"></script>
+
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<div class="body" ng-app="myApp">
-    <div class="wrapper" ng-controller="MyCtrl">
-        <div class="info">Please input your number by selecting the numbers as they pass by</div>
-        <div class="info"></div>
-
-        <input class="phone-input" type='text' placeholder="(___) ___-____" readonly/>
+    <div class="wrapper">
+      <div class= "phone-container">
+        <div class="info">Please input your number by popping the bubbles</div> 
+        <input id="phone-input" type='text' placeholder="(___) ___-____" readonly/>
+        <button id="clear-btn">Clear</button>
     </div>
 </div>
 
-
-
+<script src="/finalProject/script.js"></script>
 </body>
 </html>

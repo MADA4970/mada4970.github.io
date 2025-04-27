@@ -3,18 +3,25 @@ body, html, .body {
   width: 100%;
 }
 
-body {
-  background: radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47, 70, 0.26)), linear-gradient(108deg, #26D0CE, #1A2980 90%);
-}
+
 
 .body {
   display: table;
 }
 
 .wrapper {
+
+  /* background-image:url("/finalProject/galaxy.jpg");
+  background-size:cover; */
   display: table-cell;
-  vertical-align: middle;
+  
   text-align: center;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+z-index:100;
+/* border:solid 2px red; */
 }
 
 .info {
@@ -23,12 +30,7 @@ body {
   color: #FFF;
   text-shadow: 0 0 0.5em #000;
 }
-.phone-container{
-  top:20px;
-  left:20px;
-  background:rgba(255,255,255)
-  
-}
+
 #phone-input {
   display: block;
   margin: 2em auto;
@@ -38,4 +40,8 @@ body {
   font-size: 1.5em;
   text-align: center;
   box-shadow: 0 0 1em 0.25em rgba(0, 0, 0, 0.2);
+}
+
+canvas{
+  position:fixed;
 }
