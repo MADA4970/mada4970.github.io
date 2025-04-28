@@ -10,8 +10,12 @@ body, html, .body {
 }
 
 .wrapper {
-
-  /* background-image:url("/finalProject/galaxy.jpg");
+background:black;
+border:2px solid rgb(52, 166, 247);
+border-radius:8px;
+padding: 20px;
+box-shadow:0 0 10px rgba(52, 166, 247, 0.9);
+  /* background-image:url("/finalProject/controls.jpg");
   background-size:cover; */
   display: table-cell;
   
@@ -44,4 +48,14 @@ z-index:100;
 
 canvas{
   position:fixed;
+}
+#clear-btn{
+  background:  rgb(52, 166, 247);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 0.9em;
+  
+  text-transform: uppercase;
+  box-shadow:0 0 10px rgba(52, 166, 247, 0.9);
 }

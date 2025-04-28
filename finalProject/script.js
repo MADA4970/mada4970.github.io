@@ -8,8 +8,8 @@ let speedMultiplier = 1;
 
 class Star {
   constructor() {
-    this.x = random(-width / 2, width / 2);
-    this.y = random(-height / 2, height / 2);
+    this.x = random(-width , width);
+    this.y = random(-height, height);
     this.z = random(width);
     this.pz = this.z;
     this.number = floor(random(10))
@@ -20,8 +20,8 @@ class Star {
     this.z -= 5*speedMultiplier;
     if (this.z < 1) {
       this.z = width;
-      this.x = random(-width / 2, width / 2);
-      this.y = random(0, height);
+      this.x = random(-width/2 , width/2);
+      this.y = random(-height/2, height/2);
       this.pz = this.z;
     }
    
@@ -33,7 +33,7 @@ class Star {
 
     let sx = map(this.x / this.z, 0, 1, 0, width);
     let sy = map(this.y / this.z, 0, 1, 0, height);
-// Size of the star
+// Size of the asteroid
     let r = map(this.z, 0, width, 8, 0);
    
 
@@ -43,18 +43,29 @@ class Star {
     this.pz = this.z;
     
   
-     fill(255);
-    noStroke();
-     ellipse(sx, sy, 5*r, 5*r);
-    stroke(255);
-    textAlign(CENTER,CENTER)
-     textSize(3*r)
+    push();
+    translate(sx, sy);
     
-    fill(0)
-    text(this.number,sx,sy)
-    // strokeWeight(10)
-    // line(px, py, sx, sy); // Draw the trailing effect of the star
-
+    fill(120, 100, 90); 
+    noStroke();
+    
+// asteroids
+    beginShape();
+    for (let i = 0; i < 8; i++) {
+      let angle = map(i, 0, 8, 0, TWO_PI);
+      let offset = noise(this.x + i, this.y + i) * 2 -1;
+      let radius = 5 * r * (1 + offset * 0.3);
+      let x = radius * cos(angle);
+      let y = radius * sin(angle);
+      vertex(x, y);
+    }
+    endShape(CLOSE);
+    
+    textAlign(CENTER, CENTER);
+    textSize(3*r);
+    fill(255); 
+    text(this.number, 0, 0);
+    pop();
    
   }
   contains(px, py) {
@@ -72,19 +83,21 @@ function setup() {
   clearBtn = document.getElementById('clear-btn');
   clearBtn.addEventListener('click', clearPhoneNumber);
   // Generate stars
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 200; i++) {
     stars.push(new Star());
   }
 }
 
 function draw() {
   background(0);
-
+  push()
+translate(width/2, height/2)
   // Draw stars
   for (let star of stars) {
     star.update();
     star.show();
   }
+  pop();
 // noLoop()
 
 }
@@ -93,14 +106,14 @@ function mousePressed(){
     if(phoneNumber.length >=maxNums) return;
 
     for(let star of stars){
-        if(star.contains(mouseX,mouseY)){
+        if(star.contains(mouseX-width/2,mouseY-height/2)){
             console.log("star clicked! number:", star.number)
             phoneNumber+=star.number;
             star.clicked = true;
             speedMultiplier+=.1;
             if(phoneInput){
             phoneInput.value = formatPhoneNumber(phoneNumber)
-            // formatPhoneNumber(phoneInput)
+          
 
           
             }
