@@ -4,7 +4,7 @@ let stars = [];
 let phoneInput;
 let phoneNumber='';
 let maxNums=10;
-
+let speedMultiplier = 1;
 
 class Star {
   constructor() {
@@ -17,13 +17,14 @@ class Star {
   }
 
   update() {
-    this.z -= 5;
+    this.z -= 5*speedMultiplier;
     if (this.z < 1) {
       this.z = width;
       this.x = random(-width / 2, width / 2);
       this.y = random(0, height);
       this.pz = this.z;
     }
+   
   }
 
   show() {
@@ -96,7 +97,7 @@ function mousePressed(){
             console.log("star clicked! number:", star.number)
             phoneNumber+=star.number;
             star.clicked = true;
-            
+            speedMultiplier+=.1;
             if(phoneInput){
             phoneInput.value = formatPhoneNumber(phoneNumber)
             // formatPhoneNumber(phoneInput)
@@ -133,6 +134,11 @@ function formatPhoneNumber(phoneInput) {
 function clearPhoneNumber(){
   phoneNumber= '';
   document.getElementById('phone-input').value ='';
+  speedMultiplier=1;
+
+  for(const star of stars){
+    star.clicked=false;
+  }
 }
 
 
