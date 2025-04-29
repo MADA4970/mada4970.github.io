@@ -6,6 +6,7 @@ let phoneNumber='';
 let maxNums=10;
 let speedMultiplier = 1;
 let connections=[];
+let messageDisplay;
 //-----------------------------------------------------------------------------
 
 class Asteroid {
@@ -86,12 +87,12 @@ class ConstellationGraph {
     this.nodes =[];
     this.edges=[];
     this.active=false;
-    this.maxEdgeDistance =100;
+    this.maxEdgeDistance =200;
   }
 
   addStar(mouseX, mouseY){
 
-    if(!this.active) return;
+    // if(!this.active) return;
 
     const star = {
       x:mouseX-width/2,
@@ -137,23 +138,37 @@ class ConstellationGraph {
   }
   
   draw(){
-    if(!this.active) return;
+   
 push()
+drawingContext.shadowBlur = 20
+drawingContext.shadowColor=color(52, 166, 247)
   for(const edge of this.edges){
+    if(!this.active){
+      let opacity = 0
+    }else{
     let opacity=map(edge.weight,0,this.maxEdgeDistance,255,50)
-    let thickness = map(edge.weight,0,this.maxEdgeDistance,2,0.5)
-
+    let thickness = map(edge.weight,0,this.maxEdgeDistance,3,1)
+    
     stroke(52, 166, 247,opacity)
     strokeWeight(thickness)
     line(edge.star1.x,edge.star1.y,edge.star2.x,edge.star2.y)
- 
+    }
   }
 
   for(const node of this.nodes){
-    stroke(52, 166, 247)
-    strokeWeight(10)
-    point (node.x,node.y)
-  }
+    let opacity
+    if(!this.active){
+      let opacity = 0
+    }else{
+      let opacity = 255;
+      drawingContext.shadowBlur = 15
+drawingContext.shadowColor=color(52, 166, 247)
+      stroke(52, 166, 247,opacity)
+      strokeWeight(7)
+      point (node.x,node.y)
+    }
+    }
+   
   pop()
   }
 
@@ -164,6 +179,7 @@ push()
 
   toggle(){
     this.active = !this.active;
+  
     return this.active
   }
 }
@@ -173,11 +189,16 @@ push()
 function setup() {
   createCanvas(windowWidth, windowHeight);
   phoneInput = document.querySelector('#phone-input')
+  info = document.querySelector('.info')
   clearBtn = document.getElementById('clear-btn');
   clearBtn.addEventListener('click', clearPhoneNumber);
 
   constellationBtn=document.getElementById('constellation-btn')
   constellationBtn.addEventListener('click', toggleConstellation);
+
+  submitBtn = document.getElementById('submit-btn');
+  submitBtn.addEventListener('click', submitNumber);
+  messageDisplay = document.getElementById('message-display')
   // Generate asteroids
   for (let i = 0; i < 200; i++) {
     asteroids.push(new Asteroid());
@@ -259,9 +280,40 @@ function clearPhoneNumber(){
     asteroid.clicked=false;
   }
 
-constellationGraph.clear()
+  info.textContent = "Please input your number by shooting the asteroids";
+  info.style.color = 'rgb(255,255,255)';
+if(messageDisplay){
+  messageDisplay.style.display ='none'
+};
+constellationGraph.clear();
+if(constellationGraph.active){
+toggleConstellation();
 }
+loop();
+}
+//-----------------------------------------------------------------------------
 
+function submitNumber(){
+  if(phoneNumber.length<maxNums){
+showMessage("Please enter a 10 digit phone number!","error")
+setTimeout(() => {
+  messageDisplay.style.display = 'none';
+}, 3000);
+  }else{
+    info.textContent="Thank you! Here is a constellation of all your mouse clicks!", "success";
+    info.style.color = 'rgb(76,175,80)'
+    toggleConstellation();
+    noLoop();
+}
+  }
+  
+//------------------------------------------------------------------------------
+function showMessage(text, type){
+  messageDisplay.textContent = text;
+  messageDisplay.className="message " + type;
+  messageDisplay.style.display = 'block'
+  
+}
 //-------------------------------------------------------------------------------
 
 function toggleConstellation() {
@@ -273,4 +325,6 @@ function toggleConstellation() {
     constellationBtn.innerHTML='Show Constellation'
   }
 }
+
+//---------------------------------------------------------------------------------
 
