@@ -85,54 +85,85 @@ class ConstellationGraph {
   constructor(){
     this.nodes =[];
     this.edges=[];
-    this.active=true;
+    this.active=false;
+    this.maxEdgeDistance =100;
   }
-  addStar(asteroid){
+
+  addStar(mouseX, mouseY){
+
     if(!this.active) return;
 
-    if(this.clickedAsteroids.contains(asteroid)) return;
-
-    this.clickedAsteroids.push(asteroid);
-
-    if(this.clickedAsteroids.length>1){
-      const lastIn = this.clickedAsteroids-1
-      
-      const connection={
-        star1: this.clickedAsteroids(lastIn-1),
-        star2: this.clickedAsteroids(lastIn)
+    const star = {
+      x:mouseX-width/2,
+      y:mouseY-height/2,
+      number:floor(random(10))
     }
-    this.connections.push(connection);
+
+    this.nodes.push(star);
+
+    this.connectNearest(star);
+
+    return star
   }
+  
+    connectNearest(newStar){
+      if(this.nodes.length<=1) return;
+   
+      
+      for(const existingNode of this.nodes){
+        if(existingNode===newStar) continue;
+        let distance = dist(newStar.x,newStar.y, existingNode.x, existingNode.y)
+        if (distance< this.maxEdgeDistance){
+          const edge={
+            star1: existingNode,
+            star2: newStar,
+            weight:distance
+        }
+        let edgeExists = false
+        for(let existingEdge of this.edges){
+          if((existingEdge.star1===edge.star1&& existingEdge.star2===edge.star2)||
+          (existingEdge.star1===edge.star2&&existingEdge.star2===edge.star1)){
+            edgeExists = true;
+            break;
+          }
+          }
+          if(!edgeExists){
+            this.edges.push(edge)
+        }
+       
+        }
+      } 
+    
   }
+  
   draw(){
     if(!this.active) return;
+push()
+  for(const edge of this.edges){
+    let opacity=map(edge.weight,0,this.maxEdgeDistance,255,50)
+    let thickness = map(edge.weight,0,this.maxEdgeDistance,2,0.5)
 
-  for(const connection of this.connections){
-    let sx1 = map(this.connections.star1.x / this.connections.star1.z, 0, 1, 0, width);
-    let sy1 = map(this.connections.star1.y / this.connections.star1.z, 0, 1, 0, height);
-    let sx2 = map(this.connections.star2.x / this.connections.star2.z, 0, 1, 0, width);
-    let sy2 = map(this.connections.star2.y / this.connections.star2.z, 0, 1, 0, height);
-    
-  
-    push();
-    stroke(100,200,255)
-    strokeWeight(1.5)
-    line (sx1,sy1,sx2,sy2)
-    pop();
+    stroke(52, 166, 247,opacity)
+    strokeWeight(thickness)
+    line(edge.star1.x,edge.star1.y,edge.star2.x,edge.star2.y)
+ 
   }
 
-  for(const asteroid of this.clickedAsteroids){
-    point (asteroid.x,asteroid.y)
+  for(const node of this.nodes){
+    stroke(52, 166, 247)
+    strokeWeight(10)
+    point (node.x,node.y)
   }
+  pop()
   }
 
   clear() {
-    this.connections = [];
-    this.clickedAsteroids = []
+    this.edges = [];
+    this.nodes = []
   }
 
-  active(){
-    this.active= !this.active;
+  toggle(){
+    this.active = !this.active;
     return this.active
   }
 }
@@ -144,13 +175,14 @@ function setup() {
   phoneInput = document.querySelector('#phone-input')
   clearBtn = document.getElementById('clear-btn');
   clearBtn.addEventListener('click', clearPhoneNumber);
+
+  constellationBtn=document.getElementById('constellation-btn')
+  constellationBtn.addEventListener('click', toggleConstellation);
   // Generate asteroids
   for (let i = 0; i < 200; i++) {
     asteroids.push(new Asteroid());
   }
-   //draw constellation
-   let constellation = new Constellation();
-   constellation.draw();
+  constellationGraph = new ConstellationGraph();
 }
 
 //----------------------------------------------------------------------------------
@@ -164,7 +196,7 @@ translate(width/2, height/2)
     asteroid.update();
     asteroid.show();
   }
- 
+ constellationGraph.draw()
   pop();
 // noLoop()
 
@@ -175,10 +207,11 @@ translate(width/2, height/2)
 function mousePressed(){
     console.log("mouse clicked at:",mouseX, mouseY)
     if(phoneNumber.length >=maxNums) return;
-
+    star = constellationGraph.addStar(mouseX,mouseY)
     for(let asteroid of asteroids){
         if(asteroid.contains(mouseX-width/2,mouseY-height/2)){
             console.log("asteroid clicked! number:", asteroid.number)
+            
             phoneNumber+=asteroid.number;
             asteroid.clicked = true;
             speedMultiplier+=.1;
@@ -226,8 +259,18 @@ function clearPhoneNumber(){
     asteroid.clicked=false;
   }
 
-constellation.clear()
+constellationGraph.clear()
 }
 
 //-------------------------------------------------------------------------------
+
+function toggleConstellation() {
+  const isActive= constellationGraph.toggle()
+  const constellationBtn = document.getElementById('constellation-btn')
+  if(isActive){
+    constellationBtn.innerHTML='Hide Constellation'
+  }else{
+    constellationBtn.innerHTML='Show Constellation'
+  }
+}
 
