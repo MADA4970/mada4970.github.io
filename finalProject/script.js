@@ -1,12 +1,14 @@
 
 
-let stars = [];
+let asteroids = [];
 let phoneInput;
 let phoneNumber='';
 let maxNums=10;
 let speedMultiplier = 1;
+let connections=[];
+//-----------------------------------------------------------------------------
 
-class Star {
+class Asteroid {
   constructor() {
     this.x = random(-width , width);
     this.y = random(-height, height);
@@ -77,39 +79,108 @@ class Star {
 }
 }
 
+//----------------------------------------------------------------------------------
+
+class ConstellationGraph {
+  constructor(){
+    this.nodes =[];
+    this.edges=[];
+    this.active=true;
+  }
+  addStar(asteroid){
+    if(!this.active) return;
+
+    if(this.clickedAsteroids.contains(asteroid)) return;
+
+    this.clickedAsteroids.push(asteroid);
+
+    if(this.clickedAsteroids.length>1){
+      const lastIn = this.clickedAsteroids-1
+      
+      const connection={
+        star1: this.clickedAsteroids(lastIn-1),
+        star2: this.clickedAsteroids(lastIn)
+    }
+    this.connections.push(connection);
+  }
+  }
+  draw(){
+    if(!this.active) return;
+
+  for(const connection of this.connections){
+    let sx1 = map(this.connections.star1.x / this.connections.star1.z, 0, 1, 0, width);
+    let sy1 = map(this.connections.star1.y / this.connections.star1.z, 0, 1, 0, height);
+    let sx2 = map(this.connections.star2.x / this.connections.star2.z, 0, 1, 0, width);
+    let sy2 = map(this.connections.star2.y / this.connections.star2.z, 0, 1, 0, height);
+    
+  
+    push();
+    stroke(100,200,255)
+    strokeWeight(1.5)
+    line (sx1,sy1,sx2,sy2)
+    pop();
+  }
+
+  for(const asteroid of this.clickedAsteroids){
+    point (asteroid.x,asteroid.y)
+  }
+  }
+
+  clear() {
+    this.connections = [];
+    this.clickedAsteroids = []
+  }
+
+  active(){
+    this.active= !this.active;
+    return this.active
+  }
+}
+
+//---------------------------------------------------------------------------------
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   phoneInput = document.querySelector('#phone-input')
   clearBtn = document.getElementById('clear-btn');
   clearBtn.addEventListener('click', clearPhoneNumber);
-  // Generate stars
+  // Generate asteroids
   for (let i = 0; i < 200; i++) {
-    stars.push(new Star());
+    asteroids.push(new Asteroid());
   }
+   //draw constellation
+   let constellation = new Constellation();
+   constellation.draw();
 }
+
+//----------------------------------------------------------------------------------
 
 function draw() {
   background(0);
   push()
 translate(width/2, height/2)
-  // Draw stars
-  for (let star of stars) {
-    star.update();
-    star.show();
+  // Draw asteroids
+  for (let asteroid of asteroids) {
+    asteroid.update();
+    asteroid.show();
   }
+ 
   pop();
 // noLoop()
 
 }
+
+//----------------------------------------------------------------------------
+
 function mousePressed(){
     console.log("mouse clicked at:",mouseX, mouseY)
     if(phoneNumber.length >=maxNums) return;
 
-    for(let star of stars){
-        if(star.contains(mouseX-width/2,mouseY-height/2)){
-            console.log("star clicked! number:", star.number)
-            phoneNumber+=star.number;
-            star.clicked = true;
+    for(let asteroid of asteroids){
+        if(asteroid.contains(mouseX-width/2,mouseY-height/2)){
+            console.log("asteroid clicked! number:", asteroid.number)
+            phoneNumber+=asteroid.number;
+            asteroid.clicked = true;
             speedMultiplier+=.1;
             if(phoneInput){
             phoneInput.value = formatPhoneNumber(phoneNumber)
@@ -121,6 +192,8 @@ function mousePressed(){
         }
     }
 }
+
+//-------------------------------------------------------------------------------
 
 function formatPhoneNumber(phoneInput) {
     if(phoneInput.length === 0) return "";
@@ -142,16 +215,19 @@ function formatPhoneNumber(phoneInput) {
     return formatted;
 }
 
-
+//--------------------------------------------------------------------------------
 
 function clearPhoneNumber(){
   phoneNumber= '';
   document.getElementById('phone-input').value ='';
   speedMultiplier=1;
 
-  for(const star of stars){
-    star.clicked=false;
+  for(const asteroid of asteroids){
+    asteroid.clicked=false;
   }
+
+constellation.clear()
 }
 
+//-------------------------------------------------------------------------------
 
