@@ -1,8 +1,7 @@
+
 body, html, .body {
   height: 100%;
   width: 100%;
-  font-family:monospace;
-  font-size:1rem;
 }
 
 
@@ -44,6 +43,7 @@ z-index:100;
   margin-top:5px;
 }
 #phone-input {
+  
   display: block;
   margin: 2em auto;
   padding: 0.5em 0.25em;
