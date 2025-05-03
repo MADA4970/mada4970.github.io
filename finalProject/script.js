@@ -11,8 +11,8 @@ let messageDisplay;
 
 class Asteroid {
   constructor() {
-    this.x = random(-width , width);
-    this.y = random(-height, height);
+    this.x = random(-width/4 , width/4);
+    this.y = random(-height/3, height/3);
     this.z = random(width);
     this.pz = this.z;
     this.number = floor(random(10))
@@ -23,7 +23,7 @@ class Asteroid {
     this.z -= 5*speedMultiplier;
     if (this.z < 1) {
       this.z = width;
-      this.x = random(-width/2 , width/2);
+      this.x = random(-width/6 , width/6);
       this.y = random(-height/2, height/2);
       this.pz = this.z;
     }
@@ -302,7 +302,10 @@ setTimeout(() => {
   }else{
     info.textContent="Thank you! Here is a constellation of all your mouse clicks!", "success";
     info.style.color = 'rgb(76,175,80)'
-    toggleConstellation();
+    if(!constellationGraph.active){
+      toggleConstellation();
+    }
+   
     noLoop();
 }
   }
